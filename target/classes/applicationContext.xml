@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+    <context:component-scan base-package="ru.kityukha.learn"/>
+    <bean id="musicRock"
+          class="ru.kityukha.learn.RockMusic">
+    </bean>
+    <bean id="musicRap"
+          class="ru.kityukha.learn.RapMusic">
+    </bean>
+    <bean id="musicClassical"
+          class="ru.kityukha.learn.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+          class="ru.kityukha.learn.MusicPlayer" scope="prototype">
+        <property name="musicList">
+            <list>
+                <ref bean="musicRock"/>
+                <ref bean="musicRap"/>
+                <ref bean="musicClassical"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>
