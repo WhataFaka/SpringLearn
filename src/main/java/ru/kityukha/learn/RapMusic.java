@@ -1,6 +1,9 @@
 package ru.kityukha.learn;
 
-public class RapMusic implements Music{
+import org.springframework.stereotype.Component;
+
+@Component
+public class RapMusic implements Music {
 
 
     @Override

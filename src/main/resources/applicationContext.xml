@@ -12,25 +12,25 @@
 <!--    <bean id="musicRock"-->
 <!--          class="ru.kityukha.learn.RockMusic">-->
 <!--    </bean>-->
-    <bean id="musicRap"
-          class="ru.kityukha.learn.RapMusic">
-    </bean>
-    <bean id="musicClassical"
-          class="ru.kityukha.learn.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-    </bean>
+<!--    <bean id="musicRap"-->
+<!--          class="ru.kityukha.learn.RapMusic">-->
+<!--    </bean>-->
+<!--    <bean id="musicClassical"-->
+<!--          class="ru.kityukha.learn.ClassicalMusic"-->
+<!--          init-method="doMyInit"-->
+<!--          destroy-method="doMyDestroy"-->
+<!--          factory-method="getClassicalMusic">-->
+<!--    </bean>-->
 
-    <bean id="musicPlayer"
-          class="ru.kityukha.learn.MusicPlayer" scope="prototype">
-        <property name="musicList">
-            <list>
-                <ref bean="musicRock"/>
-                <ref bean="musicRap"/>
-                <ref bean="musicClassical"/>
-            </list>
-        </property>
-    </bean>
+<!--    <bean id="musicPlayer"-->
+<!--          class="ru.kityukha.learn.MusicPlayer" scope="prototype">-->
+<!--        <property name="musicList">-->
+<!--            <list>-->
+<!--                <ref bean="musicRock"/>-->
+<!--                <ref bean="musicRap"/>-->
+<!--                <ref bean="musicClassical"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 
 </beans>
