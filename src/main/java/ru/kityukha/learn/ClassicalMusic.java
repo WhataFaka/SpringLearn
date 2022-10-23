@@ -2,27 +2,22 @@ package ru.kityukha.learn;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ClassicalMusic implements Music {
+    private List<String> songs = new ArrayList<>();
 
-    private ClassicalMusic() {
-    }
-
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
-
-    public void doMyInit() {
-        System.out.println("Doing my initialization");
-    }
-
-    public void doMyDestroy() {
-        System.out.println("Doing my destruction");
+    {
+        songs.add("Hungarian Rhapsody");
+        songs.add("Sonata #6");
+        songs.add("Vivaldi");
     }
 
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public List<String> getSongs() {
+        return songs;
     }
 }

@@ -5,24 +5,29 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class MusicPlayer {
 
-    private List<Music> musicList = new ArrayList<>();
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
 
     @Autowired
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
+    public void playMusic(MusicGenre genre) {
+        Random random = new Random();
 
-    public MusicPlayer() {
-    }
+        int randomNumber = random.nextInt(3);
 
-    public void playMusic() {
-        for (Music music : musicList) {
-            System.out.println("Playing: " + music.getSong());
+        if (genre == MusicGenre.CLASSIC) {
+            System.out.println(classicalMusic.getSongs().get(randomNumber));
+        } else {
+            System.out.println(rockMusic.getSongs().get(randomNumber));
         }
     }
 }
